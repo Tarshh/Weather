@@ -1,0 +1,13 @@
+.weatherBlockContainer {
+  border-style: solid;
+  border-color: rgb(220, 220, 220);
+  padding: 1%;
+}
+
+.highTemp {
+  color: "yellow";
+}
+
+.lowTemp {
+  color: "gray";
+}
