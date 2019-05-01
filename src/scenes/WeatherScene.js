@@ -11,38 +11,40 @@ export default class WeatherScene extends React.Component {
     };
   }
 
-  fetchData = () => {
+  fetchData = async () => {
     const apiKey = "1c28d24177e115bd0233c20f72193c2f";
     const city = "Antwerp";
-    fetch(
-      `api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&APPID=${apiKey}`
-    )
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          isLoaded: true,
-          data: data
-        }).catch(error =>
-          this.setState({
-            error,
-            isLoaded: false
-          })
-        );
-      });
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&APPID=${apiKey}`
+    );
+    const data = await response.json();
+
+    await this.setState({
+      items: data
+    });
   };
 
-  componentDidMount() {
+  sliceData = () => {
+    const items = this.state.items;
+    const weatherItems = items.list;
+    const slicedItems = weatherItems.slice(0, 5);
     this.setState({
-      isLoaded: false,
-      data: null
+      items: slicedItems
+    });
+  };
+
+  async componentDidMount() {
+    this.setState({
+      isLoaded: true
     });
 
-    this.fetchData();
+    await this.fetchData();
+    this.sliceData();
   }
 
   render() {
-    // const { data } = this.state;
-
+    const { items } = this.state;
+    console.log(items);
     return (
       <div>
         <h1>Weather forecast Antwerp</h1>
