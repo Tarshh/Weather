@@ -1,7 +1,7 @@
 .weatherBlockContainer {
-  border-style: solid;
-  border-color: rgb(220, 220, 220);
+  background-color: rgb(192, 192, 192, 0.2);
   padding: 1%;
+  width: 20%;
 }
 
 .highTemp {

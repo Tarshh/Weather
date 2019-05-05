@@ -1,4 +1,19 @@
 .weatherContainer {
+  background-color: rgb(255, 126, 71, 0.3);
+  width: 50%;
   display: flex;
-  background-color: aliceblue;
+}
+.weatherInfoContainer {
+  background-color: aqua;
+  width: 60%;
+}
+.WeatherInfoItem {
+  padding-bottom: 10px;
+}
+span {
+  padding-left: 10%;
+}
+
+.Dropdown {
+  width: 50%;
 }
