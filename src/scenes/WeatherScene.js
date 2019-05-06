@@ -8,77 +8,92 @@ export default class WeatherScene extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false,
+      isLoading: true,
       items: [],
-      city: "Antwerp"
+      city: "Antwerp",
+      currentTime: null,
+      currentDate: null
     };
-
-    this._onSelect = this._onSelect.bind(this);
   }
 
   fetchData = async () => {
-    // const apiKey = "1c28d24177e115bd0233c20f72193c2f";
     const apiKey = "c55a767d38684c4fb37145650190305";
     const response = await fetch(
-      // `https://api.openweathermap.org/data/2.5/forecast?q=${city}&mode=json&APPID=${apiKey}&units=metric`
       `https://api.apixu.com/v1/current.json?key=${apiKey}&q=${this.state.city}`
     );
     const data = await response.json();
 
-    // const slicedItems = data.list.slice(0, 5);
     await this.setState({
-      items: data
+      items: data,
+      isLoading: false
     });
   };
 
-  async componentWillMount() {
+  async componentDidMount() {
     await this.fetchData();
-    await this.setState({
-      isLoaded: true
+    setInterval(() => {
+      this.setState({
+        currentTime: new Date().toLocaleTimeString()
+      });
     });
-
-    console.log(this.state.items);
   }
 
-  async _onSelect() {
-    console.log(this.state.city);
+  async onSelect(event) {
+    await this.setState({
+      city: event
+    });
+    await this.fetchData();
   }
   render() {
-    // const { items } = this.state;
-    const { city } = this.state;
-    const options = ["Antwerp", "Brussels", "Bruges"];
+    const { items, city, isLoading } = this.state;
+    const options = ["Antwerp", "Brussels", "Paris", "London"];
+
+    // if (!isLoading) {
+    //   console.log(items.current);
+    // }
 
     return (
-      <div>
-        <Dropdown
-          className="Dropdown"
-          options={options}
-          onChange={event => this._onSelect()}
-          value={city}
-          placeholder="Select an option"
-        />
-        <div className="weatherContainer">
-          <WeatherBlock
-            day="Today"
-            weatherIcon="cloud-lightning"
-            alt="Cloud-lightning"
-            highTemp="83"
-            lowTemp="66°"
-          />
-          <div className="weatherInfoContainer">
-            <p className="WeatherInfoItem">
-              Local Time:<span> 21:35 </span>
+      <>
+        {isLoading && <p>Loading weather...</p>}
+        {!isLoading && (
+          <>
+            <Dropdown
+              className="Dropdown"
+              options={options}
+              onChange={event => {
+                this.onSelect(event.value);
+              }}
+              value={city}
+              placeholder="Select an option"
+            />
+            <div className="weatherContainer">
+              <WeatherBlock
+                day="Now"
+                weatherIcon={items.current.condition.icon}
+                alt="Cloud-lightning"
+                Temp={items.current.temp_c}
+              />
+              <div className="weatherInfoContainer">
+                <p className="WeatherInfoItem">
+                  Condition: <span>{items.current.condition.text} </span>
+                </p>
+                <p className="WeatherInfoItem">
+                  Local Time:<span> {this.state.currentTime} </span>
+                </p>
+                <p className="WeatherInfoItem">
+                  Humidity: <span>{items.current.humidity}%</span>
+                </p>
+                <p className="WeatherInfoItem">
+                  Wind Speed: <span>{items.current.wind_kph} kph</span>
+                </p>
+              </div>
+            </div>
+            <p className="Update">
+              Last updated on: {items.current.last_updated}
             </p>
-            <p className="WeatherInfoItem">
-              Humidity: <span>66%</span>
-            </p>
-            <p className="WeatherInfoItem">
-              Wind Speed: <span>25 kph</span>
-            </p>
-          </div>
-        </div>
-        <p>Last updated on: 20:41 </p>
-      </div>
+          </>
+        )}
+      </>
     );
   }
 }

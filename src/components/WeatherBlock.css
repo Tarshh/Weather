@@ -1,13 +1,8 @@
 .weatherBlockContainer {
-  background-color: rgb(192, 192, 192, 0.2);
   padding: 1%;
   width: 20%;
 }
 
-.highTemp {
-  color: "yellow";
-}
-
-.lowTemp {
-  color: "gray";
+.Temp {
+  align-items: center;
 }

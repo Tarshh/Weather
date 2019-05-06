@@ -1,19 +1,31 @@
 .weatherContainer {
-  background-color: rgb(255, 126, 71, 0.3);
-  width: 50%;
+  background-color: #e6d385;
+  width: 40%;
   display: flex;
 }
 .weatherInfoContainer {
-  background-color: aqua;
   width: 60%;
+  background-color: #5c7658;
+  border: solid;
+  position: relative;
+  left: 8%;
+  text-align: left;
 }
 .WeatherInfoItem {
   padding-bottom: 10px;
+  padding-left: 10px;
 }
 span {
   padding-left: 10%;
+  float: right;
+  margin-right: 5%;
 }
 
 .Dropdown {
-  width: 50%;
+  width: 40%;
+}
+
+.Update {
+  float: left;
+  margin-left: 10%;
 }
