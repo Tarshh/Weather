@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/Tarshh/Weather/static/css/main.b4b91f45.chunk.css",
-    "main.js": "/Tarshh/Weather/static/js/main.249f4b9b.chunk.js",
-    "main.js.map": "/Tarshh/Weather/static/js/main.249f4b9b.chunk.js.map",
-    "runtime~main.js": "/Tarshh/Weather/static/js/runtime~main.9ec58ea8.js",
-    "runtime~main.js.map": "/Tarshh/Weather/static/js/runtime~main.9ec58ea8.js.map",
-    "static/css/2.d58fcd6a.chunk.css": "/Tarshh/Weather/static/css/2.d58fcd6a.chunk.css",
-    "static/js/2.37c97077.chunk.js": "/Tarshh/Weather/static/js/2.37c97077.chunk.js",
-    "static/js/2.37c97077.chunk.js.map": "/Tarshh/Weather/static/js/2.37c97077.chunk.js.map",
-    "index.html": "/Tarshh/Weather/index.html",
-    "precache-manifest.758adcdd97764e27fdf665d7b93c5522.js": "/Tarshh/Weather/precache-manifest.758adcdd97764e27fdf665d7b93c5522.js",
-    "service-worker.js": "/Tarshh/Weather/service-worker.js",
-    "static/css/2.d58fcd6a.chunk.css.map": "/Tarshh/Weather/static/css/2.d58fcd6a.chunk.css.map",
-    "static/css/main.b4b91f45.chunk.css.map": "/Tarshh/Weather/static/css/main.b4b91f45.chunk.css.map"
+    "main.css": "/Weather/static/css/main.b4b91f45.chunk.css",
+    "main.js": "/Weather/static/js/main.39f8b6f2.chunk.js",
+    "main.js.map": "/Weather/static/js/main.39f8b6f2.chunk.js.map",
+    "runtime~main.js": "/Weather/static/js/runtime~main.72be58e2.js",
+    "runtime~main.js.map": "/Weather/static/js/runtime~main.72be58e2.js.map",
+    "static/css/2.d58fcd6a.chunk.css": "/Weather/static/css/2.d58fcd6a.chunk.css",
+    "static/js/2.37c97077.chunk.js": "/Weather/static/js/2.37c97077.chunk.js",
+    "static/js/2.37c97077.chunk.js.map": "/Weather/static/js/2.37c97077.chunk.js.map",
+    "index.html": "/Weather/index.html",
+    "precache-manifest.4ee2769404b9aa07923bc25baca4b176.js": "/Weather/precache-manifest.4ee2769404b9aa07923bc25baca4b176.js",
+    "service-worker.js": "/Weather/service-worker.js",
+    "static/css/2.d58fcd6a.chunk.css.map": "/Weather/static/css/2.d58fcd6a.chunk.css.map",
+    "static/css/main.b4b91f45.chunk.css.map": "/Weather/static/css/main.b4b91f45.chunk.css.map"
   }
 }
